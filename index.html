@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Laboratório de Equações do Fernão</title>
 
 <style>
@@ -17,27 +18,40 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#eef2f7;
-padding-bottom:80px;
+background:#e7ebf1;
+padding-bottom:90px;
 }
 
 .app{
-max-width:390px;
+max-width:420px;
 margin:auto;
-background:#eef2f7;
 min-height:100vh;
 }
 
 .topo{
-background:#003d99;
+background:#002766;
 color:white;
-padding:12px;
+padding:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+border-bottom-left-radius:15px;
+border-bottom-right-radius:15px;
 }
 
-.logo{
+.logo-area{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.brasao{
+width:50px;
+height:50px;
+object-fit:contain;
+}
+
+.logo-texto{
 font-size:18px;
 font-weight:bold;
 }
@@ -45,6 +59,7 @@ font-weight:bold;
 .aluno{
 font-size:14px;
 text-align:right;
+line-height:1.4;
 }
 
 .caderno{
@@ -54,25 +69,29 @@ white,
 white 39px,
 #d6e4ff 40px
 );
-padding:20px 15px;
+padding:25px 15px;
 text-align:center;
+margin-top:10px;
+border-radius:20px;
 }
 
 .caderno h2{
 color:#003d99;
 font-size:18px;
+letter-spacing:2px;
 }
 
 .caderno h1{
 color:#003d99;
-font-size:42px;
-line-height:1;
+font-size:48px;
+line-height:.95;
+margin-top:5px;
 }
 
 .caderno h3{
 color:#e12626;
 font-size:28px;
-margin-top:8px;
+margin-top:5px;
 }
 
 .slogan{
@@ -84,22 +103,21 @@ color:#003d99;
 
 .card{
 background:white;
-width:85%;
-max-width:320px;
-margin:20px auto;
-padding:18px;
-border-radius:22px;
-box-shadow:0 8px 20px rgba(0,0,0,.12);
+width:92%;
+margin:25px auto;
+padding:22px;
+border-radius:25px;
+box-shadow:0 8px 20px rgba(0,0,0,.10);
 }
 
 .card h2{
 color:#0b4eb3;
-font-size:22px;
+font-size:24px;
+margin-bottom:10px;
 }
 
 .card p{
 font-size:16px;
-margin-top:8px;
 }
 
 .barra{
@@ -126,24 +144,23 @@ color:#0b4eb3;
 
 .botao{
 display:block;
-width:85%;
-max-width:320px;
-margin:15px auto;
+width:92%;
+margin:20px auto;
 background:#e12626;
 color:white;
 text-align:center;
-padding:16px;
-font-size:18px;
+padding:18px;
+font-size:20px;
 font-weight:bold;
-border-radius:16px;
+border-radius:18px;
 text-decoration:none;
+box-shadow:0 8px 20px rgba(225,38,38,.25);
 }
 
 .menu{
 display:flex;
 gap:12px;
-width:85%;
-max-width:320px;
+width:92%;
 margin:15px auto;
 }
 
@@ -163,7 +180,7 @@ position:fixed;
 bottom:0;
 left:0;
 width:100%;
-background:#003d99;
+background:#002766;
 display:flex;
 justify-content:space-around;
 padding:10px 0;
@@ -172,11 +189,12 @@ padding:10px 0;
 .rodape a{
 color:white;
 text-decoration:none;
-font-size:14px;
+font-size:13px;
 text-align:center;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -185,8 +203,14 @@ text-align:center;
 
 <div class="topo">
 
-<div class="logo">
-🏫 E.E. FERNÃO DIAS
+<div class="logo-area">
+
+<img src="brasao.png" class="brasao">
+
+<div class="logo-texto">
+E.E. FERNÃO DIAS
+</div>
+
 </div>
 
 <div class="aluno">
@@ -226,8 +250,8 @@ Investigar • Testar • Descobrir
 
 </div>
 
-<a href="bancada1.html" class="botao">
-CONTINUAR INVESTIGAÇÃO
+<a href="cadastro.html" class="botao">
+COMEÇAR
 </a>
 
 <div class="menu">
@@ -247,10 +271,23 @@ Conquistas
 </div>
 
 <div class="rodape">
-<a href="#">🏠<br>Início</a>
-<a href="#">📐<br>Bancadas</a>
-<a href="#">📊<br>Progresso</a>
-<a href="#">👤<br>Perfil</a>
+
+<a href="#">
+🏠<br>Início
+</a>
+
+<a href="#">
+📐<br>Bancadas
+</a>
+
+<a href="#">
+📊<br>Progresso
+</a>
+
+<a href="#">
+👤<br>Perfil
+</a>
+
 </div>
 
 </body>
