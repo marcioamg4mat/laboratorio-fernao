@@ -1,9 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Questão 1</title>
 
 <style>
@@ -23,14 +24,14 @@ min-height:100vh;
 .topo{
 background:#003d99;
 color:white;
-padding:18px;
-font-size:24px;
+padding:20px;
+font-size:28px;
 font-weight:bold;
 }
 
 .area{
-padding:20px;
 text-align:center;
+padding:30px 20px;
 }
 
 .equacao{
@@ -39,57 +40,49 @@ color:#003d99;
 margin:40px 0;
 }
 
-.passo{
-font-size:42px;
-margin:30px 0;
-}
-
-.botoes{
-display:flex;
-justify-content:center;
-gap:20px;
-margin-top:25px;
-}
-
-.opcao{
-background:#0b4ea2;
-color:white;
-padding:18px 35px;
-border-radius:15px;
-font-size:30px;
-cursor:pointer;
-}
-
 .postit{
 background:#fff2a8;
 padding:18px;
 border-radius:12px;
-width:320px;
-margin:30px auto;
-font-size:18px;
+max-width:350px;
+margin:20px auto;
+font-size:20px;
 }
 
-#etapa2{
-display:none;
-}
-
-#resultado{
-margin-top:25px;
+.caixa{
+width:80px;
+height:40px;
 font-size:28px;
+text-align:center;
+}
+
+.botao{
+margin-top:20px;
+padding:12px 25px;
+font-size:20px;
+background:#003d99;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.resultado{
+margin-top:25px;
+font-size:24px;
 font-weight:bold;
 }
 
-.voltar{
-display:inline-block;
-margin-top:30px;
-padding:12px 22px;
-background:#666;
-color:white;
-text-decoration:none;
-border-radius:10px;
+#passo2{
+display:none;
+}
+
+#fim{
+display:none;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -100,93 +93,108 @@ border-radius:10px;
 
 <div class="area">
 
-<h2>Bancada 1 - Movendo Números</h2>
+<h1>Bancada 1 - Movendo Números</h1>
+
+<div id="passo1">
 
 <div class="equacao">
 x + 5 = 8
 </div>
 
-<div id="passo1">
-
-<div class="equacao">
-x = 8 ( <input id="op" class="caixa"> )
+<div class="postit">
+💡 O número 5 está somando.<br>
+Faça a operação oposta.
 </div>
 
-<button onclick="verificar1()">
+<div class="equacao">
+x = 8 (
+<input id="op" class="caixa">
+)
+</div>
+
+<button class="botao" onclick="verificar1()">
 Verificar
 </button>
 
 </div>
 
-<div id="passo2" style="display:none">
+<div id="passo2">
 
 <div class="equacao">
 x = 8 - 5
 </div>
 
-
-<div id="etapa1">
-
-<div class="passo">
-x = 8 ( ___ )
-</div>
-
-<div class="botoes">
-<div class="opcao" onclick="erro()">+5</div>
-<div class="opcao" onclick="acertou1()">-5</div>
-</div>
-
 <div class="postit">
-💡 Para tirar o +5, faça a operação oposta.
+💡 Agora calcule o resultado.
+</div>
+
+<div class="equacao">
+x =
+<input id="valorx" class="caixa">
+</div>
+
+<button class="botao" onclick="verificar2()">
+Verificar
+</button>
+
+</div>
+
+<div id="fim">
+
+<div class="equacao">
+x = 3
+</div>
+
+<div class="resultado">
+⭐ +20 pontos<br><br>
+🏆 Questão concluída!
 </div>
 
 </div>
 
-<div id="etapa2">
-
-<div class="passo">
-x = 8 - 5
-</div>
-
-<h3>Quanto vale x?</h3>
-
-<div class="botoes">
-<div class="opcao" onclick="erro()">2</div>
-<div class="opcao" onclick="acertou2()">3</div>
-<div class="opcao" onclick="erro()">4</div>
-</div>
-
-</div>
-
-<div id="resultado"></div>
-
-<a href="bancada1.html" class="voltar">
-⬅ Voltar
-</a>
+<div id="mensagem" class="resultado"></div>
 
 </div>
 
 <script>
 
-function erro(){
-document.getElementById("resultado").innerHTML =
+function verificar1(){
+
+let resposta =
+document.getElementById("op").value.trim();
+
+if(resposta == "-5"){
+
+document.getElementById("passo1").style.display="none";
+document.getElementById("passo2").style.display="block";
+document.getElementById("mensagem").innerHTML="";
+
+}else{
+
+document.getElementById("mensagem").innerHTML=
 "❌ Tente novamente.";
-}
-
-function acertou1(){
-
-document.getElementById("resultado").innerHTML =
-"✅ Excelente!";
-
-document.getElementById("etapa2").style.display =
-"block";
 
 }
 
-function acertou2(){
+}
 
-document.getElementById("resultado").innerHTML =
-"⭐ +20 pontos<br>🏆 Questão concluída!";
+function verificar2(){
+
+let resposta =
+document.getElementById("valorx").value.trim();
+
+if(resposta == "3"){
+
+document.getElementById("passo2").style.display="none";
+document.getElementById("fim").style.display="block";
+document.getElementById("mensagem").innerHTML="";
+
+}else{
+
+document.getElementById("mensagem").innerHTML=
+"❌ Confira o cálculo.";
+
+}
 
 }
 
@@ -194,4 +202,3 @@ document.getElementById("resultado").innerHTML =
 
 </body>
 </html>
-```
