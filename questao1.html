@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,44 +29,54 @@ font-weight:bold;
 }
 
 .area{
-padding:30px;
+padding:25px;
 text-align:center;
-}
-
-h1{
-color:#003d99;
-margin-bottom:30px;
 }
 
 .equacao{
-font-size:48px;
+font-size:52px;
+color:#003d99;
 margin:40px 0;
 }
 
-input{
-width:120px;
-padding:15px;
-font-size:28px;
+.caixa{
+width:90px;
+padding:10px;
+font-size:30px;
 text-align:center;
-border:2px solid #ccc;
-border-radius:10px;
+border:2px solid #8bb8ff;
+border-radius:8px;
 }
 
-button{
-margin-top:25px;
-padding:15px 30px;
-border:none;
+.botao{
+margin-top:20px;
+padding:14px 28px;
 background:#0b4ea2;
 color:white;
-font-size:20px;
+border:none;
 border-radius:12px;
+font-size:18px;
 cursor:pointer;
 }
 
+.dica{
+background:#fff4b8;
+padding:15px;
+margin:25px auto;
+width:300px;
+border-radius:10px;
+font-size:16px;
+}
+
+#etapa2{
+display:none;
+margin-top:30px;
+}
+
 #resultado{
-margin-top:25px;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
+margin-top:20px;
 }
 
 .voltar{
@@ -84,26 +95,60 @@ text-decoration:none;
 <body>
 
 <div class="topo">
-Questão 1 de 15
+⬅ Questão 1 de 15
 </div>
 
 <div class="area">
 
-<h1>Movendo Números</h1>
+<h2>Bancada 1 - Movendo Números</h2>
 
 <div class="equacao">
 x + 5 = 8
 </div>
 
-<input id="resposta" type="number">
+<h3>Passo 1</h3>
+
+<p>Qual operação deve ser aplicada para retirar o +5?</p>
 
 <br>
 
-<button onclick="verificar()">
+<input id="op" class="caixa">
+
+<br>
+
+<button class="botao" onclick="verificarPasso1()">
 Verificar
 </button>
 
+<div class="dica">
+💡 Pense: o que está somando com x? Faça a operação oposta.
+</div>
+
 <div id="resultado"></div>
+
+<div id="etapa2">
+
+<h3>Passo 2</h3>
+
+<div class="equacao">
+x = 8 - 5
+</div>
+
+<p>Quanto vale x?</p>
+
+<br>
+
+<input id="valorx" class="caixa">
+
+<br>
+
+<button class="botao" onclick="verificarPasso2()">
+Finalizar
+</button>
+
+</div>
+
+<br>
 
 <a href="bancada1.html" class="voltar">
 ⬅ Voltar
@@ -113,20 +158,39 @@ Verificar
 
 <script>
 
-function verificar(){
+function verificarPasso1(){
 
-let valor =
-document.getElementById("resposta").value;
+let op=document.getElementById("op").value;
 
-if(valor == 3){
+if(op=="-5"){
 
-document.getElementById("resultado").innerHTML =
-"✅ Correto!";
+document.getElementById("resultado").innerHTML=
+"✅ Muito bem!";
+
+document.getElementById("etapa2").style.display="block";
 
 }else{
 
-document.getElementById("resultado").innerHTML =
+document.getElementById("resultado").innerHTML=
 "❌ Tente novamente.";
+
+}
+
+}
+
+function verificarPasso2(){
+
+let x=document.getElementById("valorx").value;
+
+if(x=="3"){
+
+document.getElementById("resultado").innerHTML=
+"🏆 Questão concluída!";
+
+}else{
+
+document.getElementById("resultado").innerHTML=
+"❌ Confira o cálculo.";
 
 }
 
@@ -136,3 +200,4 @@ document.getElementById("resultado").innerHTML =
 
 </body>
 </html>
+```
