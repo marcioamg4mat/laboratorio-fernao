@@ -25,20 +25,20 @@ min-height:100vh;
 .topo{
 background:#003d99;
 color:white;
-padding:14px;
-font-size:20px;
+padding:12px;
+font-size:18px;
 font-weight:bold;
 }
 
 .folha{
-max-width:430px;
+max-width:360px;
 margin:auto;
-padding:15px;
+padding:10px;
 }
 
 .titulo{
 text-align:center;
-font-size:22px;
+font-size:18px;
 font-weight:bold;
 color:#003d99;
 margin-top:10px;
@@ -46,30 +46,30 @@ margin-top:10px;
 
 .subtitulo{
 text-align:center;
-font-size:16px;
+font-size:14px;
 color:#666;
-margin-top:8px;
-margin-bottom:35px;
+margin-top:5px;
+margin-bottom:20px;
 }
 
 .equacao{
-font-size:42px;
+font-size:32px;
 color:#003d99;
 text-align:left;
-margin:30px 0;
+margin:20px 0;
 }
 
 .linha{
-font-size:38px;
+font-size:30px;
 color:#003d99;
 text-align:left;
-margin:25px 0;
+margin:20px 0;
 }
 
 .campo{
-width:90px;
-height:50px;
-font-size:32px;
+width:80px;
+height:45px;
+font-size:28px;
 text-align:center;
 border:2px solid #7aa7ff;
 border-radius:8px;
@@ -78,8 +78,9 @@ border-radius:8px;
 .botaoDica{
 display:block;
 margin-left:auto;
-margin-bottom:15px;
-padding:8px 14px;
+margin-bottom:5px;
+padding:6px 10px;
+font-size:12px;
 background:#f4d35e;
 border:none;
 border-radius:10px;
@@ -89,24 +90,24 @@ cursor:pointer;
 .postit{
 display:none;
 background:#fff2a8;
-padding:12px;
-width:220px;
+padding:8px;
+width:140px;
 border-radius:10px;
-font-size:14px;
-line-height:1.5;
-margin-left:auto;
-margin-bottom:20px;
+font-size:12px;
+line-height:1.3;
+float:right;
+margin-bottom:15px;
 box-shadow:2px 2px 8px rgba(0,0,0,.15);
 color:#333;
 }
 
 .botao{
-padding:12px 22px;
+padding:10px 18px;
 background:#003d99;
 color:white;
 border:none;
 border-radius:10px;
-font-size:18px;
+font-size:16px;
 cursor:pointer;
 }
 
@@ -116,14 +117,14 @@ margin-top:20px;
 
 .resultado{
 margin-top:25px;
-font-size:22px;
+font-size:20px;
 font-weight:bold;
 color:#222;
 }
 
 .voltar{
 display:block;
-width:120px;
+width:100px;
 text-align:center;
 margin-top:30px;
 padding:10px;
@@ -154,11 +155,11 @@ display:none;
 <div class="folha">
 
 <div class="titulo">
-Bancada 1 — Movendo Números
+Bancada 1
 </div>
 
 <div class="subtitulo">
-Resolva a questão.
+Movendo Números • Resolva a questão.
 </div>
 
 <div class="equacao">
@@ -166,15 +167,13 @@ x + 5 = 8
 </div>
 
 <button class="botaoDica" onclick="mostrarDica()">
-Dica
+💡 Dica
 </button>
 
 <div id="dica" class="postit">
-O número 5 está somando.
+5 está somando com x.
 
-<br><br>
-
-Qual é a operação oposta?
+Faça a operação oposta.
 </div>
 
 <div id="passo1">
@@ -258,7 +257,18 @@ Voltar
 
 function mostrarDica(){
 
-document.getElementById("dica").style.display="block";
+let dica =
+document.getElementById("dica");
+
+if(dica.style.display=="block"){
+
+dica.style.display="none";
+
+}else{
+
+dica.style.display="block";
+
+}
 
 }
 
