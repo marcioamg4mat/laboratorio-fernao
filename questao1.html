@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questão 1</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:
+repeating-linear-gradient(
+white,
+white 39px,
+#d6e4ff 40px
+);
+min-height:100vh;
+}
+
+.topo{
+background:#003d99;
+color:white;
+padding:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+.area{
+padding:30px;
+text-align:center;
+}
+
+h1{
+color:#003d99;
+margin-bottom:30px;
+}
+
+.equacao{
+font-size:48px;
+margin:40px 0;
+}
+
+input{
+width:120px;
+padding:15px;
+font-size:28px;
+text-align:center;
+border:2px solid #ccc;
+border-radius:10px;
+}
+
+button{
+margin-top:25px;
+padding:15px 30px;
+border:none;
+background:#0b4ea2;
+color:white;
+font-size:20px;
+border-radius:12px;
+cursor:pointer;
+}
+
+#resultado{
+margin-top:25px;
+font-size:24px;
+font-weight:bold;
+}
+
+.voltar{
+display:inline-block;
+margin-top:30px;
+background:#666;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+Questão 1 de 15
+</div>
+
+<div class="area">
+
+<h1>Movendo Números</h1>
+
+<div class="equacao">
+x + 5 = 8
+</div>
+
+<input id="resposta" type="number">
+
+<br>
+
+<button onclick="verificar()">
+Verificar
+</button>
+
+<div id="resultado"></div>
+
+<a href="bancada1.html" class="voltar">
+⬅ Voltar
+</a>
+
+</div>
+
+<script>
+
+function verificar(){
+
+let valor =
+document.getElementById("resposta").value;
+
+if(valor == 3){
+
+document.getElementById("resultado").innerHTML =
+"✅ Correto!";
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"❌ Tente novamente.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
