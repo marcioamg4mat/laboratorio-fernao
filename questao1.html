@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +12,8 @@
 
 body{
 margin:0;
-font-family:Arial,sans-serif;
+background:#fdfdfd;
+font-family:"Comic Sans MS", cursive;
 background:
 repeating-linear-gradient(
 white,
@@ -25,65 +27,76 @@ min-height:100vh;
 background:#003d99;
 color:white;
 padding:18px;
-font-size:28px;
+font-size:26px;
 font-weight:bold;
 }
 
 .area{
 padding:20px;
-text-align:center;
 }
 
 h1{
+text-align:center;
 color:#003d99;
 }
 
-.equacao{
-font-size:60px;
+.linha{
+font-size:42px;
+margin:30px 0;
 color:#003d99;
-margin:40px 0;
-}
-
-.postit{
-background:#fff2a8;
-padding:18px;
-border-radius:12px;
-max-width:380px;
-margin:20px auto;
-font-size:20px;
+text-align:center;
 }
 
 .caixa{
-width:90px;
-height:45px;
+width:80px;
+height:40px;
 font-size:28px;
 text-align:center;
 border:2px solid #4a8cff;
 border-radius:8px;
+font-family:"Comic Sans MS", cursive;
+}
+
+.postit{
+background:#fff2a8;
+padding:15px;
+border-radius:12px;
+max-width:320px;
+margin:20px auto;
+font-size:18px;
 }
 
 .botao{
-margin-top:20px;
-padding:12px 30px;
-font-size:20px;
+display:block;
+margin:20px auto;
+padding:12px 25px;
+font-size:18px;
 background:#003d99;
 color:white;
 border:none;
 border-radius:10px;
 cursor:pointer;
-}
-
-.botao:hover{
-background:#0b4eb3;
+font-family:"Comic Sans MS", cursive;
 }
 
 .resultado{
-margin-top:25px;
+text-align:center;
 font-size:24px;
 font-weight:bold;
+margin-top:20px;
 }
 
-#passo2{
+.voltar{
+display:inline-block;
+margin-top:30px;
+padding:12px 20px;
+background:#666;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+#etapa2{
 display:none;
 }
 
@@ -105,18 +118,18 @@ display:none;
 
 <h1>Bancada 1 - Movendo Números</h1>
 
-<div id="passo1">
-
-<div class="equacao">
+<div class="linha">
 x + 5 = 8
 </div>
 
 <div class="postit">
-💡 O número 5 está somando.<br>
+💡 O número 5 está somando.
 Faça a operação oposta.
 </div>
 
-<div class="equacao">
+<div id="etapa1">
+
+<div class="linha">
 x = 8 (
 <input id="op" class="caixa">
 )
@@ -128,17 +141,21 @@ Verificar
 
 </div>
 
-<div id="passo2">
+<div id="etapa2">
 
-<div class="equacao">
+<div class="linha">
+x = 8 ( -5 )
+</div>
+
+<div class="linha">
 x = 8 - 5
 </div>
 
 <div class="postit">
-💡 Agora calcule o valor de x.
+💡 Agora calcule o resultado.
 </div>
 
-<div class="equacao">
+<div class="linha">
 x =
 <input id="valorx" class="caixa">
 </div>
@@ -151,7 +168,15 @@ Verificar
 
 <div id="fim">
 
-<div class="equacao">
+<div class="linha">
+x = 8 ( -5 )
+</div>
+
+<div class="linha">
+x = 8 - 5
+</div>
+
+<div class="linha">
 x = 3
 </div>
 
@@ -165,6 +190,10 @@ x = 3
 
 <div id="mensagem" class="resultado"></div>
 
+<a href="bancada1.html" class="voltar">
+⬅ Voltar
+</a>
+
 </div>
 
 <script>
@@ -176,14 +205,16 @@ document.getElementById("op").value.trim();
 
 if(Number(resposta) === -5){
 
-document.getElementById("passo1").style.display="none";
-document.getElementById("passo2").style.display="block";
-document.getElementById("mensagem").innerHTML="";
+document.getElementById("etapa1").style.display="none";
+document.getElementById("etapa2").style.display="block";
+
+document.getElementById("mensagem").innerHTML =
+"✅ Excelente!";
 
 }else{
 
-document.getElementById("mensagem").innerHTML=
-"❌ Para eliminar o +5, use a operação oposta.";
+document.getElementById("mensagem").innerHTML =
+"❌ Pense na operação oposta.";
 
 }
 
@@ -196,14 +227,16 @@ document.getElementById("valorx").value.trim();
 
 if(Number(resposta) === 3){
 
-document.getElementById("passo2").style.display="none";
+document.getElementById("etapa2").style.display="none";
 document.getElementById("fim").style.display="block";
-document.getElementById("mensagem").innerHTML="";
+
+document.getElementById("mensagem").innerHTML =
+"";
 
 }else{
 
-document.getElementById("mensagem").innerHTML=
-"❌ Confira o cálculo de 8 - 5.";
+document.getElementById("mensagem").innerHTML =
+"❌ Confira o cálculo.";
 
 }
 
@@ -213,3 +246,4 @@ document.getElementById("mensagem").innerHTML=
 
 </body>
 </html>
+```
