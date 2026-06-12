@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laboratório de Equações do Fernão - Beta 1 v0.2</title>
+<style>
+body{margin:0;font-family:Arial;background:#eaf1fb}
+.tela{max-width:430px;margin:auto;min-height:100vh;background:white}
+.topo{background:#0b4ea2;color:white;text-align:center;padding:20px}
+.logo{font-size:64px}
+.btn{width:100%;padding:14px;border:none;border-radius:12px;background:#0b4ea2;color:white;font-size:18px}
+.area{padding:16px}
+input{width:100%;padding:12px;margin:8px 0;box-sizing:border-box}
+.caderno{
+background:repeating-linear-gradient(white,white 30px,#d9e8ff 31px,white 32px);
+border-left:5px solid #d62828;
+padding:12px;
+min-height:300px;
+}
+.linha{font-size:28px;margin:12px 0}
+.campo{width:70px;border:none;border-bottom:2px solid #0b4ea2;font-size:24px;text-align:center}
+.msg{background:#fff3cd;padding:10px;border-radius:10px;margin-top:10px}
+#cad,#app{display:none}
+</style>
+</head>
+<body>
+
+<div id="inicio" class="tela">
+<div class="topo">
+<div class="logo">🏫</div>
+<h2>LABORATÓRIO DE EQUAÇÕES DO FERNÃO</h2>
+<p>Investigar • Testar • Descobrir</p>
+</div>
+<div class="area">
+<button class="btn" onclick="abrirCadastro()">ENTRAR NO LABORATÓRIO</button>
+<p style="text-align:center;margin-top:20px">
+Autor e Desenvolvedor<br>
+<b>Prof. Márcio Araujo</b>
+</p>
+</div>
+</div>
+
+<div id="cad" class="tela">
+<div class="topo"><h3>Identificação</h3></div>
+<div class="area">
+<input id="nome" placeholder="Nome">
+<input placeholder="Série">
+<input placeholder="Turma">
+<input placeholder="Turno">
+<button class="btn" onclick="iniciar()">INICIAR INVESTIGAÇÃO</button>
+</div>
+</div>
+
+<div id="app" class="tela">
+<div class="topo">
+🏫 Fernão<br>
+👤 <span id="aluno"></span><br>
+⭐ <span id="est">0</span> &nbsp; 🏆 <span id="pts">0</span>
+</div>
+
+<div class="area">
+Experimento 1 de 15
+<div style="background:#ddd;height:10px;border-radius:5px;margin:8px 0">
+<div style="width:7%;height:10px;background:#0b4ea2;border-radius:5px"></div>
+</div>
+
+<div class="caderno">
+<div id="hist">
+<div class="linha">x + 5 = 8</div>
+</div>
+
+<div id="etapa">
+<div class="linha">x = 8 ( <input id="resp" class="campo"> )</div>
+<button class="btn" onclick="testar()">🧪 TESTAR HIPÓTESE</button>
+</div>
+
+<div id="feed"></div>
+</div>
+</div>
+</div>
+
+<script>
+let fase=1, erros=0;
+
+function abrirCadastro(){
+document.getElementById('inicio').style.display='none';
+document.getElementById('cad').style.display='block';
+}
+
+function iniciar(){
+document.getElementById('cad').style.display='none';
+document.getElementById('app').style.display='block';
+document.getElementById('aluno').innerText=document.getElementById('nome').value || 'Investigador';
+}
+
+function testar(){
+let v=document.getElementById('resp').value.trim();
+
+if(fase===1){
+ if(v==='-5'){
+   document.getElementById('hist').innerHTML +=
+   '<div class="linha">x = 8 (-5)</div><div class="linha">x = 8 - 5</div>';
+   document.getElementById('etapa').innerHTML =
+   '<div class="linha">x = ( <input id="resp" class="campo"> )</div><button class="btn" onclick="testar()">🧪 TESTAR HIPÓTESE</button>';
+   fase=2;
+ }else erro();
+}else{
+ if(v==='+3'){
+   document.getElementById('hist').innerHTML += '<div class="linha">x = +3</div>';
+   document.getElementById('pts').innerText='15';
+   document.getElementById('est').innerText='⭐⭐⭐';
+   document.getElementById('etapa').innerHTML =
+   '<div class="msg">🎉 Experimento Concluído!<br>⭐⭐⭐<br>🏆 +15 pontos</div>';
+ }else erro();
+}
+}
+
+function erro(){
+erros++;
+let m='🌟 Continue investigando!';
+if(erros==2) m='🔬 Revise sua hipótese.';
+if(erros>=3) m='🧠 Leia novamente a última linha.';
+document.getElementById('feed').innerHTML='<div class="msg">'+m+'</div>';
+}
+</script>
+
+</body>
+</html>
