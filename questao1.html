@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,149 +12,137 @@
 
 body{
 margin:0;
-font-family:Arial,sans-serif;
-
+font-family:Trebuchet MS, Arial, sans-serif;
 background:
 repeating-linear-gradient(
 white,
-white 43px,
-#dbe7ff 44px
+white 42px,
+#dbe7ff 43px
 );
-
-color:#0b4ea2;
+min-height:100vh;
 }
 
 .topo{
-background:#0b4ea2;
+background:#003d99;
 color:white;
-padding:18px;
-font-size:22px;
+padding:14px;
+font-size:20px;
 font-weight:bold;
 }
 
 .folha{
-max-width:700px;
+max-width:430px;
 margin:auto;
-padding:20px;
+padding:15px;
 }
 
 .titulo{
 text-align:center;
 font-size:22px;
 font-weight:bold;
-margin-top:20px;
+color:#003d99;
+margin-top:10px;
 }
 
 .subtitulo{
 text-align:center;
-font-size:18px;
-margin-top:15px;
-color:#444;
+font-size:16px;
+color:#666;
+margin-top:8px;
+margin-bottom:35px;
 }
 
 .equacao{
+font-size:42px;
+color:#003d99;
+text-align:left;
+margin:30px 0;
+}
+
+.linha{
+font-size:38px;
+color:#003d99;
+text-align:left;
+margin:25px 0;
+}
+
+.campo{
+width:90px;
+height:50px;
+font-size:32px;
 text-align:center;
-font-size:72px;
-margin-top:50px;
+border:2px solid #7aa7ff;
+border-radius:8px;
 }
 
 .botaoDica{
 display:block;
-margin:35px auto;
-padding:12px 20px;
+margin-left:auto;
+margin-bottom:15px;
+padding:8px 14px;
+background:#f4d35e;
 border:none;
-background:#f3d55b;
-border-radius:12px;
-font-size:18px;
+border-radius:10px;
 cursor:pointer;
 }
 
 .postit{
 display:none;
-background:#fff1a8;
-padding:18px;
-width:280px;
-border-radius:12px;
-box-shadow:0 4px 10px rgba(0,0,0,.15);
-margin-bottom:30px;
-font-size:20px;
+background:#fff2a8;
+padding:12px;
+width:220px;
+border-radius:10px;
+font-size:14px;
+line-height:1.5;
+margin-left:auto;
+margin-bottom:20px;
+box-shadow:2px 2px 8px rgba(0,0,0,.15);
 color:#333;
 }
 
-.resolucao{
-margin-top:20px;
-margin-left:80px;
-font-size:58px;
-line-height:1.8;
-}
-
-.campo{
-width:120px;
-height:70px;
-font-size:50px;
-text-align:center;
-border:3px solid #7aa7ff;
-border-radius:12px;
+.botao{
+padding:12px 22px;
+background:#003d99;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
 }
 
 .verificar{
-display:block;
-margin-top:30px;
-padding:16px 40px;
-font-size:24px;
-background:#0b4ea2;
-color:white;
-border:none;
-border-radius:15px;
-cursor:pointer;
+margin-top:20px;
 }
 
 .resultado{
-margin-top:30px;
-font-size:40px;
-font-weight:bold;
-}
-
-.sucesso{
-display:none;
-text-align:center;
-margin-top:40px;
-font-size:32px;
-color:black;
-}
-
-.proxima{
-display:none;
-margin:30px auto;
-padding:16px 30px;
-background:#e12626;
-color:white;
-border:none;
-border-radius:15px;
+margin-top:25px;
 font-size:22px;
-cursor:pointer;
+font-weight:bold;
+color:#222;
 }
 
-@media(max-width:600px){
-
-.equacao{
-font-size:46px;
+.voltar{
+display:block;
+width:120px;
+text-align:center;
+margin-top:30px;
+padding:10px;
+background:#666;
+color:white;
+text-decoration:none;
+border-radius:10px;
 }
 
-.resolucao{
-font-size:38px;
-margin-left:20px;
+#passo2{
+display:none;
 }
 
-.campo{
-width:90px;
-height:55px;
-font-size:36px;
-}
-
+#fim{
+display:none;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -164,7 +154,7 @@ font-size:36px;
 <div class="folha">
 
 <div class="titulo">
-📐 Bancada 1 — Movendo Números
+Bancada 1 — Movendo Números
 </div>
 
 <div class="subtitulo">
@@ -176,34 +166,75 @@ x + 5 = 8
 </div>
 
 <button class="botaoDica" onclick="mostrarDica()">
-💡 Dica
+Dica
 </button>
 
 <div id="dica" class="postit">
-💡 O número 5 está somando.<br><br>
+O número 5 está somando.
+
+<br><br>
+
 Qual é a operação oposta?
 </div>
 
-<div class="resolucao">
+<div id="passo1">
 
-<div>x + 5 = 8</div>
-
-<div>x = 8 ( -5 )</div>
-
-<div>x = 8 - 5</div>
-
-<div>
-x =
-<input id="resposta" class="campo">
+<div class="linha">
+x = 8 (
+<input id="op" class="campo">
+)
 </div>
 
-<button class="verificar" onclick="verificar()">
+<button class="botao verificar" onclick="verificar1()">
 Verificar
 </button>
 
 </div>
 
-<div id="sucesso" class="sucesso">
+<div id="passo2">
+
+<div class="linha">
+x + 5 = 8
+</div>
+
+<div class="linha">
+x = 8 ( -5 )
+</div>
+
+<div class="linha">
+x = 8 - 5
+</div>
+
+<div class="linha">
+x =
+<input id="valorx" class="campo">
+</div>
+
+<button class="botao verificar" onclick="verificar2()">
+Verificar
+</button>
+
+</div>
+
+<div id="fim">
+
+<div class="linha">
+x + 5 = 8
+</div>
+
+<div class="linha">
+x = 8 ( -5 )
+</div>
+
+<div class="linha">
+x = 8 - 5
+</div>
+
+<div class="linha">
+x = 3
+</div>
+
+<div class="resultado">
 
 ⭐ +20 pontos
 
@@ -211,45 +242,63 @@ Verificar
 
 ✅ Problema resolvido
 
-<br><br>
-
-x = 3
-
-<br><br>
-
-<button class="proxima" onclick="location.href='bancada1.html'">
-Próxima questão
-</button>
+</div>
 
 </div>
+
+<div id="mensagem" class="resultado"></div>
+
+<a href="bancada1.html" class="voltar">
+Voltar
+</a>
 
 </div>
 
 <script>
 
 function mostrarDica(){
+
 document.getElementById("dica").style.display="block";
-}
-
-function verificar(){
-
-let valor =
-document.getElementById("resposta")
-.value
-.trim();
-
-if(valor=="3" || valor=="+3"){
-
-document.getElementById("sucesso")
-.style.display="block";
-
-document.querySelector(".proxima")
-.style.display="block";
 
 }
-else{
 
-alert("Tente novamente.");
+function verificar1(){
+
+let resposta =
+document.getElementById("op").value.trim();
+
+if(Number(resposta) === -5){
+
+document.getElementById("passo1").style.display="none";
+document.getElementById("passo2").style.display="block";
+
+document.getElementById("mensagem").innerHTML="";
+
+}else{
+
+document.getElementById("mensagem").innerHTML=
+"Confira a operação oposta.";
+
+}
+
+}
+
+function verificar2(){
+
+let resposta =
+document.getElementById("valorx").value.trim();
+
+if(Number(resposta) === 3){
+
+document.getElementById("passo2").style.display="none";
+document.getElementById("fim").style.display="block";
+
+document.getElementById("mensagem").innerHTML="";
+
+}else{
+
+document.getElementById("mensagem").innerHTML=
+"Confira o cálculo.";
 
 }
 
@@ -259,3 +308,4 @@ alert("Tente novamente.");
 
 </body>
 </html>
+```
