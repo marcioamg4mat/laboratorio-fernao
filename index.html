@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,8 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#f5f5f5;
+background:#eef2f7;
+padding-bottom:90px;
 }
 
 .topo{
@@ -29,128 +31,137 @@ align-items:center;
 }
 
 .logo{
-font-size:28px;
+font-size:24px;
 font-weight:bold;
 }
 
 .aluno{
 text-align:right;
-font-size:18px;
 }
 
 .caderno{
 background:
 repeating-linear-gradient(
-to bottom,
-white 0px,
-white 72px,
-#dbe7ff 73px,
-white 74px
+white,
+white 39px,
+#d6e4ff 40px
 );
-padding:40px 20px;
+padding:30px 20px;
 text-align:center;
 }
 
-.titulo1{
-color:#0b47a1;
-font-size:22px;
-font-weight:bold;
+.caderno h2{
+color:#003d99;
+font-size:28px;
 }
 
-.titulo2{
-color:#0b47a1;
-font-size:72px;
-font-weight:900;
-line-height:0.9;
+.caderno h1{
+color:#003d99;
+font-size:62px;
+line-height:1;
 }
 
-.titulo3{
-color:#d91f26;
-font-size:54px;
-font-weight:900;
+.caderno h3{
+color:#e12626;
+font-size:42px;
+margin-top:10px;
 }
 
-.subtitulo{
+.slogan{
 margin-top:25px;
 font-size:20px;
-color:#0b47a1;
 font-weight:bold;
-}
-
-.area{
-background:#eceef3;
-padding:20px;
+color:#003d99;
 }
 
 .card{
 background:white;
+width:90%;
+margin:30px auto;
 padding:25px;
 border-radius:20px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card h2{
-color:#0b47a1;
-font-size:42px;
-margin-bottom:10px;
+color:#0b4eb3;
+font-size:28px;
 }
 
 .card p{
-font-size:22px;
+font-size:18px;
+margin-top:10px;
 }
 
 .barra{
-height:20px;
+height:18px;
 background:#ddd;
 border-radius:20px;
-margin-top:25px;
 overflow:hidden;
+margin-top:20px;
 }
 
 .progresso{
 width:47%;
 height:100%;
-background:#0b47a1;
+background:#0b4eb3;
 }
 
-.fracao{
+.questoes{
 text-align:right;
+margin-top:12px;
 font-size:24px;
 font-weight:bold;
-color:#0b47a1;
-margin-top:10px;
+color:#0b4eb3;
 }
 
 .botao{
 display:block;
-text-decoration:none;
-background:#d91f26;
+width:90%;
+margin:20px auto;
+background:#e12626;
 color:white;
 text-align:center;
 padding:22px;
-border-radius:16px;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
-margin-top:20px;
+border-radius:18px;
+text-decoration:none;
 }
 
 .menu{
+display:flex;
+gap:20px;
+width:90%;
+margin:20px auto;
+}
+
+.caixa{
+flex:1;
+background:white;
+padding:30px;
+border-radius:18px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.rodape{
 position:fixed;
 bottom:0;
 left:0;
-right:0;
+width:100%;
 background:#003d99;
 display:flex;
 justify-content:space-around;
-padding:15px;
+padding:15px 0;
 }
 
-.menu button{
-background:none;
-border:none;
+.rodape a{
 color:white;
+text-decoration:none;
 font-size:18px;
-cursor:pointer;
 }
 
 </style>
@@ -159,7 +170,6 @@ cursor:pointer;
 <body>
 
 <div class="topo">
-
 <div class="logo">
 🏫 E.E. FERNÃO DIAS
 </div>
@@ -168,33 +178,19 @@ cursor:pointer;
 Márcio<br>
 7º Ano A
 </div>
-
 </div>
 
 <div class="caderno">
+<h2>LABORATÓRIO DE</h2>
+<h1>EQUAÇÕES</h1>
+<h3>DO FERNÃO</h3>
 
-<div class="titulo1">
-LABORATÓRIO DE
-</div>
-
-<div class="titulo2">
-EQUAÇÕES
-</div>
-
-<div class="titulo3">
-DO FERNÃO
-</div>
-
-<div class="subtitulo">
+<div class="slogan">
 Investigar • Testar • Descobrir
 </div>
-
 </div>
 
-<div class="area">
-
 <div class="card">
-
 <h2>🧪 Bancada 1</h2>
 
 <p>Movendo Números</p>
@@ -203,28 +199,32 @@ Investigar • Testar • Descobrir
 <div class="progresso"></div>
 </div>
 
-<div class="fracao">
+<div class="questoes">
 7 / 15
 </div>
-
 </div>
 
-<a href="#" class="botao">
+<a href="bancada1.html" class="botao">
 CONTINUAR INVESTIGAÇÃO
 </a>
 
+<div class="menu">
+<div class="caixa">
+📖<br><br>
+Revisões
 </div>
 
-<div class="menu">
+<div class="caixa">
+🏆<br><br>
+Conquistas
+</div>
+</div>
 
-<button>🏠 Início</button>
-
-<button>🧪 Bancadas</button>
-
-<button>📊 Progresso</button>
-
-<button>👤 Perfil</button>
-
+<div class="rodape">
+<a href="#">🏠<br>Início</a>
+<a href="#">🧪<br>Bancadas</a>
+<a href="#">📊<br>Progresso</a>
+<a href="#">👤<br>Perfil</a>
 </div>
 
 </body>
