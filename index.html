@@ -1,130 +1,281 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Laboratório de Equações do Fernão - Beta 1 v0.2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratório de Equações do Fernão</title>
+
 <style>
-body{margin:0;font-family:Arial;background:#eaf1fb}
-.tela{max-width:430px;margin:auto;min-height:100vh;background:white}
-.topo{background:#0b4ea2;color:white;text-align:center;padding:20px}
-.logo{font-size:64px}
-.btn{width:100%;padding:14px;border:none;border-radius:12px;background:#0b4ea2;color:white;font-size:18px}
-.area{padding:16px}
-input{width:100%;padding:12px;margin:8px 0;box-sizing:border-box}
-.caderno{
-background:repeating-linear-gradient(white,white 30px,#d9e8ff 31px,white 32px);
-border-left:5px solid #d62828;
-padding:12px;
-min-height:300px;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
-.linha{font-size:28px;margin:12px 0}
-.campo{width:70px;border:none;border-bottom:2px solid #0b4ea2;font-size:24px;text-align:center}
-.msg{background:#fff3cd;padding:10px;border-radius:10px;margin-top:10px}
-#cad,#app{display:none}
+
+body{
+background:#f2f5fa;
+max-width:430px;
+margin:auto;
+min-height:100vh;
+padding-bottom:90px;
+}
+
+.topo{
+background:#003b8f;
+color:white;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+.escola{
+font-size:14px;
+font-weight:bold;
+}
+
+.aluno{
+text-align:right;
+font-size:14px;
+}
+
+.caderno{
+background:
+repeating-linear-gradient(
+to bottom,
+white,
+white 34px,
+#d8e6ff 35px
+);
+padding:25px 20px;
+min-height:350px;
+text-align:center;
+}
+
+.titulo1{
+color:#083b8c;
+font-size:18px;
+font-weight:bold;
+margin-top:15px;
+}
+
+.titulo2{
+color:#083b8c;
+font-size:54px;
+font-weight:bold;
+line-height:0.95;
+margin-top:8px;
+}
+
+.titulo3{
+color:#d92323;
+font-size:38px;
+font-weight:bold;
+margin-top:5px;
+}
+
+.slogan{
+margin-top:18px;
+font-size:18px;
+color:#083b8c;
+font-weight:bold;
+}
+
+.card{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:18px;
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.bancada{
+font-size:28px;
+font-weight:bold;
+color:#0b4ea2;
+}
+
+.subtitulo{
+font-size:22px;
+margin-top:8px;
+}
+
+.barra{
+height:12px;
+background:#ddd;
+border-radius:10px;
+margin-top:18px;
+overflow:hidden;
+}
+
+.progresso{
+width:47%;
+height:100%;
+background:#0b4ea2;
+}
+
+.questoes{
+text-align:right;
+margin-top:10px;
+font-weight:bold;
+color:#0b4ea2;
+}
+
+.botao{
+display:block;
+margin:20px;
+background:#d62828;
+color:white;
+text-decoration:none;
+padding:18px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+border-radius:14px;
+}
+
+.acoes{
+display:flex;
+gap:15px;
+padding:0 20px;
+}
+
+.item{
+flex:1;
+background:white;
+padding:18px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+font-weight:bold;
+}
+
+.menu{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+max-width:430px;
+margin:auto;
+background:#002f73;
+color:white;
+display:flex;
+justify-content:space-around;
+padding:15px 0;
+}
+
+.menu div{
+text-align:center;
+font-size:14px;
+}
+
 </style>
 </head>
+
 <body>
 
-<div id="inicio" class="tela">
 <div class="topo">
+
+<div>
 <div class="logo">🏫</div>
-<h2>LABORATÓRIO DE EQUAÇÕES DO FERNÃO</h2>
-<p>Investigar • Testar • Descobrir</p>
-</div>
-<div class="area">
-<button class="btn" onclick="abrirCadastro()">ENTRAR NO LABORATÓRIO</button>
-<p style="text-align:center;margin-top:20px">
-Autor e Desenvolvedor<br>
-<b>Prof. Márcio Araujo</b>
-</p>
-</div>
+<div class="escola">E.E. FERNÃO DIAS</div>
 </div>
 
-<div id="cad" class="tela">
-<div class="topo"><h3>Identificação</h3></div>
-<div class="area">
-<input id="nome" placeholder="Nome">
-<input placeholder="Série">
-<input placeholder="Turma">
-<input placeholder="Turno">
-<button class="btn" onclick="iniciar()">INICIAR INVESTIGAÇÃO</button>
-</div>
+<div class="aluno">
+Márcio<br>
+7º Ano A
 </div>
 
-<div id="app" class="tela">
-<div class="topo">
-🏫 Fernão<br>
-👤 <span id="aluno"></span><br>
-⭐ <span id="est">0</span> &nbsp; 🏆 <span id="pts">0</span>
-</div>
-
-<div class="area">
-Experimento 1 de 15
-<div style="background:#ddd;height:10px;border-radius:5px;margin:8px 0">
-<div style="width:7%;height:10px;background:#0b4ea2;border-radius:5px"></div>
 </div>
 
 <div class="caderno">
-<div id="hist">
-<div class="linha">x + 5 = 8</div>
+
+<div class="titulo1">
+LABORATÓRIO DE
 </div>
 
-<div id="etapa">
-<div class="linha">x = 8 ( <input id="resp" class="campo"> )</div>
-<button class="btn" onclick="testar()">🧪 TESTAR HIPÓTESE</button>
+<div class="titulo2">
+EQUAÇÕES
 </div>
 
-<div id="feed"></div>
+<div class="titulo3">
+DO FERNÃO
 </div>
+
+<div class="slogan">
+Investigar • Testar • Descobrir
 </div>
+
 </div>
 
-<script>
-let fase=1, erros=0;
+<div class="card">
 
-function abrirCadastro(){
-document.getElementById('inicio').style.display='none';
-document.getElementById('cad').style.display='block';
-}
+<div class="bancada">
+🧪 Bancada 1
+</div>
 
-function iniciar(){
-document.getElementById('cad').style.display='none';
-document.getElementById('app').style.display='block';
-document.getElementById('aluno').innerText=document.getElementById('nome').value || 'Investigador';
-}
+<div class="subtitulo">
+Movendo Números
+</div>
 
-function testar(){
-let v=document.getElementById('resp').value.trim();
+<div class="barra">
+<div class="progresso"></div>
+</div>
 
-if(fase===1){
- if(v==='-5'){
-   document.getElementById('hist').innerHTML +=
-   '<div class="linha">x = 8 (-5)</div><div class="linha">x = 8 - 5</div>';
-   document.getElementById('etapa').innerHTML =
-   '<div class="linha">x = ( <input id="resp" class="campo"> )</div><button class="btn" onclick="testar()">🧪 TESTAR HIPÓTESE</button>';
-   fase=2;
- }else erro();
-}else{
- if(v==='+3'){
-   document.getElementById('hist').innerHTML += '<div class="linha">x = +3</div>';
-   document.getElementById('pts').innerText='15';
-   document.getElementById('est').innerText='⭐⭐⭐';
-   document.getElementById('etapa').innerHTML =
-   '<div class="msg">🎉 Experimento Concluído!<br>⭐⭐⭐<br>🏆 +15 pontos</div>';
- }else erro();
-}
-}
+<div class="questoes">
+7 / 15
+</div>
 
-function erro(){
-erros++;
-let m='🌟 Continue investigando!';
-if(erros==2) m='🔬 Revise sua hipótese.';
-if(erros>=3) m='🧠 Leia novamente a última linha.';
-document.getElementById('feed').innerHTML='<div class="msg">'+m+'</div>';
-}
-</script>
+</div>
+
+<a href="#" class="botao">
+CONTINUAR INVESTIGAÇÃO
+</a>
+
+<div class="acoes">
+
+<div class="item">
+📖<br>
+Revisões
+</div>
+
+<div class="item">
+🏆<br>
+Conquistas
+</div>
+
+</div>
+
+<div class="menu">
+
+<div>
+🏠<br>
+Início
+</div>
+
+<div>
+🧪<br>
+Bancadas
+</div>
+
+<div>
+📊<br>
+Progresso
+</div>
+
+<div>
+👤<br>
+Perfil
+</div>
+
+</div>
 
 </body>
 </html>
