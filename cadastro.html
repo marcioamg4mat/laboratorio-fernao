@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#e7ebf1;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.card{
+background:white;
+width:100%;
+max-width:420px;
+padding:30px;
+border-radius:30px;
+border:3px solid #c8d9ff;
+box-shadow:0 10px 25px rgba(0,31,91,.12);
+}
+
+.logo{
+text-align:center;
+margin-bottom:25px;
+}
+
+.logo img{
+width:90px;
+height:90px;
+object-fit:contain;
+}
+
+.logo h1{
+color:#001f5b;
+margin-top:10px;
+}
+
+.logo p{
+color:#666;
+}
+
+.campo{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+margin-bottom:6px;
+font-weight:bold;
+color:#001f5b;
+}
+
+input,
+select{
+width:100%;
+padding:14px;
+border:2px solid #d6e4ff;
+border-radius:12px;
+font-size:16px;
+}
+
+.botao{
+display:block;
+width:100%;
+padding:18px;
+background:#e12626;
+color:white;
+text-decoration:none;
+text-align:center;
+font-weight:bold;
+border-radius:15px;
+margin-top:10px;
+}
+
+.info{
+margin-top:15px;
+text-align:center;
+font-size:13px;
+color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="logo">
+
+<img src="brasao.png.jpg">
+
+<h1>Vamos começar!</h1>
+
+<p>Preencha seus dados</p>
+
+</div>
+
+<div class="campo">
+<label>Nome</label>
+<input type="text" value="Márcio">
+</div>
+
+<div class="campo">
+<label>Série</label>
+<select>
+<option>7º Ano</option>
+<option>8º Ano</option>
+<option>9º Ano</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Turma</label>
+<select>
+<option>A</option>
+<option>B</option>
+<option>C</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Turno</label>
+<select>
+<option>Manhã</option>
+<option>Tarde</option>
+</select>
+</div>
+
+<a href="bancada1.html" class="botao">
+COMEÇAR
+</a>
+
+<div class="info">
+🔒 Seus dados ficam apenas neste dispositivo.
+</div>
+
+</div>
+
+</body>
+</html>
